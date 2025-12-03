@@ -9,6 +9,9 @@
         "contextMenus",
         "storage"
     ],
+    "host_permissions": [
+        "https://vera-g6.vercel.app/*"
+    ],
     "background": {
         "service_worker": "background.js"
     },
