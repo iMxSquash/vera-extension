@@ -1,62 +1,33 @@
-# Vera Extension Chrome
+# Vera Text Selector - Extension Chrome
 
-Extension Chrome simple (Manifest V3) pour envoyer du texte sélectionné vers l'application Vera.
+## 📝 Utilité
 
-## Installation
+**Vera Text Selector** est une extension Chrome qui vous permet de sélectionner du texte sur n'importe quelle page web et de l'envoyer directement à **Vera**, une IA spécialisée en fact-checking. Idéale pour :
 
-1. Ouvrez Chrome et allez dans `chrome://extensions/`
-2. Activez le "Mode développeur" en haut à droite
-3. Cliquez sur "Charger l'extension non empaquetée"
-4. Sélectionnez le dossier de cette extension
+- Vérifier la véracité des faits et affirmations en temps réel
+- Détecter les informations inexactes ou trompeuses
+- Valider le contenu texte directement depuis votre navigateur
 
-## Configuration
+## 🚀 Installation sur Chrome
 
-Dans `popup.js`, modifiez la variable `isDev` :
+### Étapes d'installation :
 
-- `true` pour pointer vers `http://localhost:4200`
-- `false` pour pointer vers `https://mon-site.com`
+1. **Clonez ou téléchargez** ce dépôt sur votre ordinateur
+2. **Ouvrez Chrome** et accédez à `chrome://extensions/`
+3. **Activez le "Mode de développeur"** (bouton en haut à droite)
+4. Cliquez sur **"Charger l'extension non empaquetée"**
+5. Sélectionnez le dossier `vera-extension` contenant les fichiers de l'extension
+6. ✅ L'extension est maintenant installée !
 
-```javascript
-const isDev = true; // Changez en false pour la production
-```
+### Utilisation :
 
-## Utilisation
+- L'icône de l'extension apparaît dans votre barre d'outils Chrome
+- Cliquez sur l'icône pour ouvrir le panneau Vera
+- Sélectionnez du texte sur une page web et envoyez-le à Vera pour vérification
 
-1. Sur n'importe quel site web, sélectionnez du texte
-2. Cliquez sur l'icône de l'extension Vera dans la barre d'outils
-3. Une popup s'ouvre avec votre application chargée dans un iframe
-4. Le texte sélectionné est automatiquement envoyé à votre application
+## 📁 Fichiers de l'extension
 
-## Intégration dans votre application Angular
-
-Ajoutez le code suivant dans votre composant (voir `angular-receiver-example.ts`) :
-
-```typescript
-ngOnInit() {
-  window.addEventListener('message', this.handleMessage);
-}
-
-handleMessage = (event: MessageEvent) => {
-  if (event.data && event.data.type === 'VERA_SELECTED_TEXT') {
-    const selectedText = event.data.text;
-    // Utilisez le texte comme vous le souhaitez
-  }
-}
-```
-
-## Notes sur les icônes
-
-L'extension nécessite des icônes aux formats suivants :
-
-- `icon16.png` (16x16)
-- `icon48.png` (48x48)
-- `icon128.png` (128x128)
-
-Créez ces icônes ou utilisez des placeholders temporaires pour tester l'extension.
-
-## Fichiers
-
-- `manifest.json` : Configuration de l'extension (Manifest V3)
-- `popup.html` : Interface de la popup avec iframe
-- `popup.js` : Logique pour récupérer le texte et l'envoyer
-- `angular-receiver-example.ts` : Exemple d'intégration Angular
+- `manifest.json` - Configuration de l'extension
+- `popup.html` - Interface du popup
+- `popup.js` - Logique du popup
+- `background.js` - Service worker de l'extension
