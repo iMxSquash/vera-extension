@@ -1,6 +1,4 @@
-// Configuration de l'URL selon l'environnement
-const isDev = true;
-const VERA_URL = isDev ? 'http://localhost:4200/vera' : 'https://vera-g6.vercel.app/vera';
+const VERA_URL = 'https://vera-g6.vercel.app/vera';
 
 // Créer les menus contextuels lors de l'installation de l'extension
 chrome.runtime.onInstalled.addListener(() => {

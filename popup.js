@@ -1,7 +1,4 @@
-// Configuration de l'URL selon l'environnement
-// Changez cette variable pour passer entre dev et prod
-const isDev = false;
-const VERA_URL = isDev ? 'http://localhost:4200/vera' : 'https://vera-g6.vercel.app/vera';
+const VERA_URL = 'https://vera-g6.vercel.app/vera';
 
 // Fonction pour récupérer le texte sélectionné dans la page active
 async function getSelectedText() {
